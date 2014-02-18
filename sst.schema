@@ -1660,6 +1660,14 @@ attributetype ( sstAttributeType:228
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:229
+    NAME 'sstNumberOfScreens'
+    DESC 'The number of screens (heads) as an integer value, that are allowed resp. used (for example: 2).'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1845,7 +1853,7 @@ objectclass ( sstObjectClass:26
 	   sstVirtualMachine $ sstVirtualMachinePool )
     MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $
           sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine $
-          sstNetworkDomainName $ sstNetworkHostname ) )
+          sstNetworkDomainName $ sstNetworkHostname $ sstNumberOfScreens ) )
 
 objectclass ( sstObjectClass:27
     NAME 'sstVirtualizationVirtualMachineDevices'
@@ -1981,15 +1989,15 @@ objectclass ( sstObjectClass:48
 objectclass ( sstObjectClass:49
     NAME 'sstVirtualMachinePoolConfigurationObjectClass'
     SUP top AUXILIARY
-    MUST ( sstBrokerMaximalNumberOfVirtualMachines $ sstBrokerMinimalNumberOfVirtualMachines $ 
-           sstBrokerPreStartNumberOfVirtualMachines ) )
+    MAY ( sstBrokerMaximalNumberOfVirtualMachines $ sstBrokerMinimalNumberOfVirtualMachines $ 
+           sstBrokerPreStartNumberOfVirtualMachines $ sstNumberOfScreens ) )
 
 objectclass ( sstObjectClass:50
     NAME 'sstVirtualMachinePoolDynamicObjectClass'
     SUP top AUXILIARY
     MUST ( sstBrokerMaximalNumberOfVirtualMachines $ sstBrokerMinimalNumberOfVirtualMachines $
            sstBrokerPreStartNumberOfVirtualMachines )
-    MAY ( sstActiveGoldenImage $ sstBrokerPreStartInterval ) )
+    MAY ( sstActiveGoldenImage $ sstBrokerPreStartInterval $ sstNumberOfScreens ) )
 
 objectclass ( sstObjectClass:51
     NAME 'sstLDAPSearchObjectClass'
@@ -2045,8 +2053,8 @@ objectclass ( sstObjectClass:58
           sstVirtualizationVirtualMachineForceStart $ sstVirtualizationBandwidthMerge $
           sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
           sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart $
-	  sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
-	  sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission $
+	      sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
+	      sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission $
           sstVirtualizationDiskImageDirectoryOwner $ sstVirtualizationDiskImageDirectoryGroup $
           sstVirtualizationDiskImageDirectoryPermission ) )
 
