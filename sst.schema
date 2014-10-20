@@ -1674,6 +1674,37 @@ attributetype ( sstAttributeType:230
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:231
+    NAME 'sstUserRightSection'
+    DESC 'The section of the user right.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{64} )
+
+attributetype ( sstAttributeType:232
+    NAME 'sstUserRightAction'
+    DESC 'The action of the user right.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
+
+attributetype ( sstAttributeType:233
+    NAME 'sstUserRightSectionAction'
+    DESC 'The action of the user right section.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{96} )
+
+attributetype ( sstAttributeType:234
+    NAME 'sstUserRightValue'
+    DESC 'The value of the user right.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
+
+attributetype ( sstAttributeType:235
+    NAME 'sstRoleUID'
+    DESC 'The role UID (Unique Identifier).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1715,8 +1746,8 @@ objectclass ( sstObjectClass:6
     MUST ( givenName $ mail $ preferredLanguage $ sstBelongsToCustomerUID $
            sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
-          telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ 
-	  sstIsActive $ sstGender ) )
+          telephoneNumber $ sstGroupUID $ sstRoleUID $ sstLDAPForeignStaticAttribute $ 
+		  sstGroupName $ sstIsActive $ sstGender ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
@@ -2108,3 +2139,19 @@ objectclass ( sstObjectClass:66
     SUP top AUXILIARY
     MUST ( sstDisplayName $ sstModuleVersion ) )
 
+objectclass ( sstObjectClass:67
+    NAME 'sstUserRightDefinition'
+    SUP top STRUCTURAL
+    MUST ( sstUserRightSection $ sstUserRightAction $ sstDisplayName $  sstIsActive )
+	MAY ( description ) )
+
+objectclass ( sstObjectClass:68
+    NAME 'sstUserRightSetting'
+    SUP top STRUCTURAL
+    MUST ( sstUserRightSectionAction $ sstUserRightValue ) )
+
+objectclass ( sstObjectClass:69
+	NAME 'sstRoleObjectClass'
+    SUP top STRUCTURAL
+    MUST ( sstDisplayName )
+    MAY ( description $ ou $ sstGroupName $ uid ) )
