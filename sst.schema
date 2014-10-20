@@ -1667,6 +1667,12 @@ attributetype ( sstAttributeType:229
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:230
+    NAME 'sstModuleVersion'
+    DESC 'The module version.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
 
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
@@ -2091,3 +2097,14 @@ objectclass ( sstObjectClass:64
     NAME 'sstServiceConfigurionMonitoringObjectClass'
     SUP top AUXILIARY
     MUST ( sstWebsiteURL $ uid $ sstIsActive ) )
+
+objectclass ( sstObjectClass:65
+    NAME 'sstNetworkMapping'
+    SUP top STRUCTURAL
+    MUST ( sstDisplayName $ sstNetworkIpAddress $ sstMacAddress $ sstVirtualMachinePool $ sstIsActive ) )
+
+objectclass ( sstObjectClass:66
+    NAME 'sstModule'
+    SUP top AUXILIARY
+    MUST ( sstDisplayName $ sstModuleVersion ) )
+
