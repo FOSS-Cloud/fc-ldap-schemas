@@ -1705,6 +1705,13 @@ attributetype ( sstAttributeType:235
     SUBSTR caseIgnoreSubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:236
+    NAME 'sstSpiceIPAddress'
+    DESC 'The spice IP address(es), also called IP (for example: 192.168.1.13).'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{32} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1992,7 +1999,7 @@ objectclass ( sstObjectClass:42
 objectclass ( sstObjectClass:43
     NAME 'sstNetworkNode'
     SUP top AUXILIARY
-    MUST ( sstNetworkIPAddress ) )
+    MUST ( sstNetworkIPAddress $  sstSpiceIPAddress ) )
 
 objectclass ( sstObjectClass:44
     NAME 'sstServicesNode'
