@@ -1999,7 +1999,8 @@ objectclass ( sstObjectClass:42
 objectclass ( sstObjectClass:43
     NAME 'sstNetworkNode'
     SUP top AUXILIARY
-    MUST ( sstNetworkIPAddress $  sstSpiceIPAddress ) )
+    MUST ( sstNetworkIPAddress )
+    MAY (  sstSpiceIPAddress ) )
 
 objectclass ( sstObjectClass:44
     NAME 'sstServicesNode'
