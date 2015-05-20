@@ -1965,8 +1965,8 @@ objectclass ( sstObjectClass:37
 objectclass ( sstObjectClass:38
     NAME 'sstVirtualizationNetworkRange'
     SUP top STRUCTURAL
-    MUST ( cn $ sstDisplayName $ sstNetworkType  )
-    MAY ( description ) )
+    MUST ( cn $ sstDisplayName $ sstNetworkType )
+    MAY ( description $ sstSourceBridge ) )
 
 objectclass ( sstObjectClass:39
     NAME 'sstBackup'
