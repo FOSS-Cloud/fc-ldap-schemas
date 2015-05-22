@@ -1,8 +1,8 @@
 ################################################################################
 # LDAP Schema                                                    FOSS-Group GmbH
 # ---------------------------------                              Bismarckallee 9
-# Release: 0.9.9                                         DE-79098 Freiburg i.Br.
-# Date:    2013-09-06                                                    Germany
+# FOSS-Cloud                                             DE-79098 Freiburg i.Br.
+#                                                                        Germany
 ################################################################################
 # sst           =          singular secure trait
 ################################################################################
@@ -2163,3 +2163,4 @@ objectclass ( sstObjectClass:69
     SUP top STRUCTURAL
     MUST ( sstDisplayName )
     MAY ( description $ ou $ sstGroupName $ uid ) )
+
