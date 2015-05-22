@@ -1960,7 +1960,7 @@ objectclass ( sstObjectClass:37
     NAME 'sstVirtualMachines'
     SUP top STRUCTURAL
     MUST ( sstVirtualMachinePool)
-    MAY ( description $ sstDisplayName $ sstVirtualMachine $ sstVirtualMachinePoolType ) )
+    MAY ( description $ sstDisplayName $ sstVirtualMachine $ sstVirtualMachinePoolType $ sstNumberOfScreens ) )
 
 objectclass ( sstObjectClass:38
     NAME 'sstVirtualizationNetworkRange'
@@ -2042,7 +2042,7 @@ objectclass ( sstObjectClass:50
     SUP top AUXILIARY
     MUST ( sstBrokerMaximalNumberOfVirtualMachines $ sstBrokerMinimalNumberOfVirtualMachines $
            sstBrokerPreStartNumberOfVirtualMachines )
-    MAY ( sstActiveGoldenImage $ sstBrokerPreStartInterval $ sstNumberOfScreens ) )
+    MAY ( sstActiveGoldenImage $ sstBrokerPreStartInterval ) )
 
 objectclass ( sstObjectClass:51
     NAME 'sstLDAPSearchObjectClass'
